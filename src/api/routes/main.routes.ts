@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import usersRouter from './users.routes';
+import emailRoutes from './email.routes';
 
 const routes = Router();
 
-routes.use('/users', usersRouter);
+routes.use('/email', emailRoutes);
 
 export default routes;

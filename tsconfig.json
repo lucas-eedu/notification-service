@@ -27,7 +27,6 @@
     "rootDir": "./",
     "baseUrl": "./"
   },
-
   "include": ["src/api/*.ts"],
   "exclude": ["node_modules"]
 }
