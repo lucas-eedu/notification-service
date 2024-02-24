@@ -8,14 +8,6 @@ export async function execute(
   product: string,
 ): Promise<void> {
   try {
-    await emailRepository.create({
-      to,
-      subject,
-      html,
-      product,
-      status: 'pending',
-    });
-
     sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
 
     const msg = {
@@ -25,7 +17,16 @@ export async function execute(
       html,
     };
 
-    await sgMail.send(msg);
+    const [response] = await sgMail.send(msg);
+
+    await emailRepository.create({
+      messageId: response.headers['x-message-id'],
+      to,
+      subject,
+      html,
+      product,
+      status: 'pending',
+    });
   } catch (error) {
     console.error('Erro ao enviar e-mail:', error);
     throw new Error('Erro ao enviar e-mail.');

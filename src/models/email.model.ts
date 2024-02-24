@@ -2,6 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 import IEmail from '../interfaces/email.interface';
 
 const EmailSchema: Schema = new Schema({
+  messageId: { type: String, required: true },
   to: { type: String, required: true },
   subject: { type: String, required: true },
   html: { type: String, required: true },
