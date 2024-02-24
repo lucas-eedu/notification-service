@@ -1,9 +1,9 @@
 import 'dotenv/config';
 import express from 'express';
-import Logger from './api/config/logger';
-import { db } from './api/config/mongoose';
-import morganMiddleware from './api/middlewares/morganMiddleware';
-import router from './api/routes/main.routes';
+import Logger from './config/logger';
+import { db } from './config/mongoose';
+import morganMiddleware from './middlewares/morganMiddleware';
+import router from './routes/main.routes';
 
 const app = express();
 

@@ -5,7 +5,7 @@
   "author": "Lucas Eduardo",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/api/main.ts"
+    "dev": "ts-node-dev --respawn --transpile-only src/main.ts"
   },
   "dependencies": {
     "@sendgrid/mail": "^8.1.1",
