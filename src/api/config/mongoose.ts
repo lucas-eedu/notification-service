@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import Logger from '../api/config/logger';
+import Logger from './logger';
 
 mongoose.connect('mongodb://localhost:27017/notification-service');
 

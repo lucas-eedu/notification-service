@@ -1,15 +1,16 @@
 import { Request, Response } from 'express';
-import CreateEmailService from '../services/email/create.email.service';
+import { execute } from '../services/email/send.email.service';
 
 class EmailController {
-  async create(req: Request, res: Response): Promise<void> {
+  async send(req: Request, res: Response): Promise<void> {
+    const { to, subject, html, product } = req.body;
+
     try {
-      const emailData = req.body;
-      const email = await CreateEmailService.execute(emailData);
-      res.status(200).json(email);
+      await execute(to, subject, html, product);
+      res.status(200).json({ message: 'E-mail enviado com sucesso!' });
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Internal Server Error' });
+      console.error('Erro ao enviar e-mail:', error);
+      res.status(500).json({ message: 'Erro ao enviar e-mail.' });
     }
   }
 }

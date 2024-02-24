@@ -8,8 +8,9 @@ export default async function emailValidation(
 ): Promise<void> {
   try {
     const schema = Yup.object().shape({
-      from: Yup.string().email().required(),
-      to: Yup.array().of(Yup.string().email()).required(),
+      to: Yup.string().email().required(),
+      subject: Yup.string().required(),
+      html: Yup.string().required(),
       product: Yup.string().required(),
       status: Yup.string().required().oneOf(['pending', 'sent', 'failed']),
     });

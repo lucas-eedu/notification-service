@@ -4,6 +4,6 @@ import EmailController from '../controller/email.controller';
 
 const router = express.Router();
 
-router.post('/create', emailValidation, EmailController.create);
+router.post('/send', emailValidation, EmailController.send);
 
 export default router;
