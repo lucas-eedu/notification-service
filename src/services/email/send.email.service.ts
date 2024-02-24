@@ -1,34 +1,46 @@
 import sgMail from '@sendgrid/mail';
-import emailRepository from '../../repositories/email.repository';
+import EmailRepository from '../../repositories/email.repository';
+import IEmail from '../../interfaces/email.interface';
 
-export async function execute(
-  to: string,
-  subject: string,
-  html: string,
-  product: string,
-): Promise<void> {
-  try {
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
+class SendEmailService {
+  public async execute(
+    to: string,
+    subject: string,
+    html: string,
+    product: string,
+  ): Promise<IEmail> {
+    try {
+      sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
 
-    const msg = {
-      to,
-      from: process.env.SENDGRID_MAIL_FROM_ADDRESS || 'default@example.com',
-      subject,
-      html,
-    };
+      const msg = {
+        to,
+        from: process.env.SENDGRID_MAIL_FROM_ADDRESS || 'default@example.com',
+        subject,
+        html,
+      };
 
-    const [response] = await sgMail.send(msg);
+      const [response] = await sgMail.send(msg);
+      const messageId = response?.headers?.['x-message-id'];
 
-    await emailRepository.create({
-      messageId: response.headers['x-message-id'],
-      to,
-      subject,
-      html,
-      product,
-      status: 'pending',
-    });
-  } catch (error) {
-    console.error('Erro ao enviar e-mail:', error);
-    throw new Error('Erro ao enviar e-mail.');
+      const status = response?.statusCode === 202 ? 'pending' : undefined;
+
+      if (!messageId || !status) {
+        throw new Error('Failed to send email.');
+      }
+
+      return EmailRepository.create({
+        messageId,
+        to,
+        subject,
+        html,
+        product,
+        status,
+      });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      throw new Error('Error sending email.');
+    }
   }
 }
+
+export default SendEmailService;

@@ -12,7 +12,9 @@ export default async function emailValidation(
       subject: Yup.string().required(),
       html: Yup.string().required(),
       product: Yup.string().required(),
-      status: Yup.string().required().oneOf(['pending', 'sent', 'failed']),
+      status: Yup.string()
+        .required()
+        .oneOf(['pending', 'delivered', 'bounce', 'blocked']),
     });
 
     await schema.validate(req.body, { abortEarly: false });
