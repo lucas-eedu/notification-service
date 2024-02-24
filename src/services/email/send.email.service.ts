@@ -23,10 +23,14 @@ class SendEmailService {
       const [response] = await sgMail.send(msg);
       const messageId = response?.headers?.['x-message-id'];
 
+      if (!messageId) {
+        throw new Error('Failed to send email: missing message ID.');
+      }
+
       const status = response?.statusCode === 202 ? 'pending' : undefined;
 
-      if (!messageId || !status) {
-        throw new Error('Failed to send email.');
+      if (!status) {
+        throw new Error('Failed to send email: unexpected status.');
       }
 
       return EmailRepository.create({
