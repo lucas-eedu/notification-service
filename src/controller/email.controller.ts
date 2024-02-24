@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import SendEmailService from '../services/email/send.email.service';
 import UpdateEmailService from '../services/email/update.email.service';
+import Logger from '../config/logger';
 
 class EmailController {
   public async send(req: Request, res: Response): Promise<void> {
@@ -21,7 +22,7 @@ class EmailController {
         message: 'Email sent successfully',
       });
     } catch (error) {
-      console.error('Error sending email:', error);
+      Logger.error('Error sending email:', error);
       res.status(500).json({ message: 'Error sending email' });
     }
   }
@@ -34,7 +35,7 @@ class EmailController {
       await updateEmail.execute(sg_message_id, event);
       res.status(204).json({});
     } catch (error) {
-      console.error('Error updating email status:', error);
+      Logger.error('Error updating email status:', error);
       res.status(500).json({ message: 'Error updating email status' });
     }
   }

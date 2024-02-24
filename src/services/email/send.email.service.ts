@@ -1,6 +1,7 @@
 import sgMail from '@sendgrid/mail';
 import EmailRepository from '../../repositories/email.repository';
 import IEmail from '../../interfaces/email.interface';
+import Logger from '../../config/logger';
 
 class SendEmailService {
   public async execute(
@@ -37,7 +38,7 @@ class SendEmailService {
         status,
       });
     } catch (error) {
-      console.error('Error sending email:', error);
+      Logger.error('Error sending email:', error);
       throw new Error('Error sending email.');
     }
   }

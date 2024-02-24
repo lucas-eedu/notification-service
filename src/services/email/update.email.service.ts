@@ -1,4 +1,5 @@
 import EmailRepository from '../../repositories/email.repository';
+import Logger from '../../config/logger';
 
 class UpdateEmailService {
   public async execute(sg_message_id: string, event: string): Promise<void> {
@@ -14,7 +15,7 @@ class UpdateEmailService {
 
       await emailDocument.save();
     } catch (error) {
-      console.error('Error updating e-mail:', error);
+      Logger.error('Error updating e-mail:', error);
       throw new Error('Error updating e-mail.');
     }
   }
