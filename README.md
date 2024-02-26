@@ -1,3 +1,8 @@
+<div style="display: inline_block"><br>
+  <img align="center" alt="Twilio" height="auto" width="30%" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Twilio-logo-red.svg">
+  <img align="center" alt="Sendgrid" height="auto" width="30%" src="https://cdn.icon-icons.com/icons2/2699/PNG/512/sendgrid_logo_icon_169764.png">
+</div>
+
 # Notification Service
 
 The Notification Service is an application developed in Node.js with the aim of providing a solution for sending notifications via email and SMS. It uses the SendGrid platforms to send emails and Twilio to send SMS messages. The project was built on technologies: Express, TypeScript and MongoDB.
