@@ -114,4 +114,5 @@ Contributions are welcome! If you encounter any issues, have an idea for a new f
 
 ## Contacts
 Linkedin: https://www.linkedin.com/in/lucas-eduardo/
+<br>
 E-mail: lucas01.dev@gmail.com
