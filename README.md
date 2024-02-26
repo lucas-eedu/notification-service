@@ -1,17 +1,13 @@
 # Notification Service
 
-O Serviço de Notificação é uma aplicação desenvolvida em Node.js com o objetivo de fornecer uma solução para o envio de notificações por e-mail e SMS. Utiliza as plataformas SendGrid para envio de e-mails e Twilio para envio de mensagens SMS. O projeto foi construído as tecnologias: Express, TypeScript e MongoDB.
+The Notification Service is an application developed in Node.js with the aim of providing a solution for sending notifications via email and SMS. It uses the SendGrid platforms to send emails and Twilio to send SMS messages. The project was built on technologies: Express, TypeScript and MongoDB.
 
-## Funcionalidades
-- Envio de e-mails utilizando o SendGrid API.
-- Envio de mensagens SMS utilizando a API do Twilio.
-- Validação de entrada de dados utilizando YUP.
-- Logging de eventos utilizando a biblioteca Winston.
-
-## Requisitos do Sistema
-Antes de executar o projeto, certifique-se de ter as seguintes ferramentas instaladas:
-- Node.js
-- MongoDB
+## Functionalities
+- Sending emails using the <a href="https://docs.sendgrid.com/pt-br/for-developers/sending-email/api-getting-started" target="_blank">Sendgrid API</a>.
+- Sending SMS messages using the <a href="https://www.twilio.com/docs/messaging/onboarding" target="_blank">Twilio API</a>.
+- Data entry validation using <a href="https://www.npmjs.com/package/yup" target="_blank">YUP</a> library.
+- Event logging using the <a href="https://www.npmjs.com/package/winston" target="_blank">Winston</a> and <a href="https://www.npmjs.com/package/morgan">Morgan</a> library.
+- Tests using the <a href="https://www.npmjs.com/package/jest" target="_blank">Jest</a> library.
 
 ```go
 notification-service
@@ -57,54 +53,60 @@ notification-service
 └── tsconfig.json
 ```
 
-## Instalação
+## System Requirements
+Before running the project, make sure you have the following tools installed:
+- Node.js
+- MongoDB
 
-Antes de começar, verifique se você possui o Node.js e o MongoDB instalados em sua máquina.
-
-1. Clone o repositório para o seu ambiente local:
+## Installation
+1. Clone the repository to your local environment:
 
 ```bash
-git clone https://github.com/seu-usuario/servico-de-notificacao.git
+git clone git@github.com:lucas-eedu/notification-service.git
 ```
 
-2. Navegue até o diretório do projeto:
+2. Navigate to the project directory:
 ```bash
-cd servico-de-notificacao
+cd notification-service
 ```
 
-3. Instale as dependências do projeto usando o npm:
+3. Install project dependencies using npm:
 ```bash
 npm install
 ```
 
-4. Configure as variáveis de ambiente:
-Crie um arquivo .env na raiz do projeto e defina as seguintes variáveis:
+4. Configure the environment variables:
+Copy the .env.example file to .env in the project root and set the following variables:
 ```bash
 APP_PORT=3000
 APP_URL=http://localhost
 APP_STAGE="development"
 
-MONGODB_URI=URLdoBancoDeDadosMongoDB
+MONGODB_URI=MongoDBDatabaseURL
 
 SENDGRID_API_KEY=SuaChaveAPIdoSendGrid
 
-TWILIO_SID=SeuSIDdoTwilio
-TWILIO_AUTH_TOKEN=SeuTokendeAutenticacaodoTwilio
-TWILIO_PHONE=SeuNumeroTwilio
+TWILIO_SID=YourSendGridAPIKey
+TWILIO_AUTH_TOKEN=YourTwilioAuthenticationToken
+TWILIO_PHONE=YourPhoneNumberTwilio
 ```
-Substitua os valores acima pelos seus dados de autenticação e configuração do MongoDB.
+Replace the above values with your MongoDB authentication and configuration data.
 
-5. Inicie o servidor:
+5. Start the server:
 ```bash
 npm start
 ```
-O servidor estará disponível em http://localhost:3000.
+The server will be available at http://localhost:3000.
 
-## Testes
+## Tests
 ```bash
 npm test
 ```
-Testes unitários para os serviços de e-mail e SMS, bem como testes de integração para os controllers.
+Unit tests for email and SMS services, as well as integration tests for controllers.
 
-## Contribuidores
-Contribuições são bem-vindas! Se você encontrar algum problema, tiver uma ideia para um novo recurso ou quiser melhorar o código existente, sinta-se à vontade para abrir uma issue ou enviar uma solicitação de PR. Vamos construir juntos este projeto e torná-lo ainda melhor!
+## Contributors
+Contributions are welcome! If you encounter any issues, have an idea for a new feature, or want to improve existing code, feel free to open an issue or submit a PR request. Let's build this project together and make it even better!
+
+## Contacts
+Linkedin: https://www.linkedin.com/in/lucas-eduardo/
+E-mail: lucas01.dev@gmail.com
