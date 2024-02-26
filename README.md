@@ -8,11 +8,11 @@
 The Notification Service is an application developed in Node.js with the aim of providing a solution for sending notifications via email and SMS. It uses the SendGrid platforms to send emails and Twilio to send SMS messages. The project was built on technologies: Express, TypeScript and MongoDB.
 
 ## Functionalities
-- Sending emails using the <a href="https://docs.sendgrid.com/pt-br/for-developers/sending-email/api-getting-started" target="_blank">Sendgrid API</a>.
-- Sending SMS messages using the <a href="https://www.twilio.com/docs/messaging/onboarding" target="_blank">Twilio API</a>.
-- Data entry validation using <a href="https://www.npmjs.com/package/yup" target="_blank">YUP</a> library.
-- Event logging using the <a href="https://www.npmjs.com/package/winston" target="_blank">Winston</a> and <a href="https://www.npmjs.com/package/morgan">Morgan</a> library.
-- Tests using the <a href="https://www.npmjs.com/package/jest" target="_blank">Jest</a> library.
+- Sending emails using the <a href="https://docs.sendgrid.com/pt-br/for-developers/sending-email/api-getting-started" target="_blank">Sendgrid API</a>
+- Sending SMS messages using the <a href="https://www.twilio.com/docs/messaging/onboarding" target="_blank">Twilio API</a>
+- Data entry validation using <a href="https://www.npmjs.com/package/yup" target="_blank">YUP</a>
+- Event logging using the <a href="https://www.npmjs.com/package/winston" target="_blank">Winston</a> and <a href="https://www.npmjs.com/package/morgan">Morgan</a>
+- Tests using the <a href="https://www.npmjs.com/package/jest" target="_blank">Jest</a>
 
 ```go
 notification-service
