@@ -13,6 +13,7 @@ Antes de executar o projeto, certifique-se de ter as seguintes ferramentas insta
 - Node.js
 - MongoDB
 
+```go
 notification-service
 ├── LICENSE
 ├── README.md
@@ -54,6 +55,7 @@ notification-service
 │       ├── email.validator.schema.ts
 │       └── sms.validator.schema.ts
 └── tsconfig.json
+```
 
 ## Instalação
 
